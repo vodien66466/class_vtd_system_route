@@ -1,0 +1,30 @@
+<IfModule mod_rewrite.c>
+Options +FollowSymLinks
+RewriteEngine on
+
+
+
+Options -Indexes
+ErrorDocument 402 /ERROR/404.php
+ErrorDocument 403 /ERROR/404.php
+ErrorDocument 404 /ERROR/404.php
+ErrorDocument 500 /ERROR/404.php
+DirectoryIndex index.php
+
+RemoveHandler .phtml .php3 .php4 .php5 .php6 .phps .cgi .pl .asp .aspx .shtml .shtm .fcgi .fpl .jsp .py
+AddType application/x-httpd-php-source .phtml .php3 .php4 .php5 .php6 .phps .cgi .pl .asp .aspx .shtml .shtm .fcgi .fpl .jsp .py
+
+
+
+
+
+RewriteRule ^home/$ index.php [L]
+RewriteRule ^home$ index.php [L]
+RewriteRule ^home/(.*)$ index.php?VTD_view=$1 [L]
+RewriteRule ^admin/$ admin.php [L]
+RewriteRule ^admin$ admin.php [L]
+RewriteRule ^admin/(.*)$ admin.php?VTD_view=$1 [L]
+
+
+
+</IfModule>
